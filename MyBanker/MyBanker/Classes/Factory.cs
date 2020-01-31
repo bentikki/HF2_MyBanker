@@ -8,25 +8,15 @@ namespace MyBanker.Classes
 {
     public static class Factory
     {
-        public static ICard NewVisaElectron(string holderName)
+        public static IPrinter NewPrinter(string holderName)
         {
-            return new VisaElectron(holderName);
+            //Can be FilePrinter to print to file.
+            return new ConsolePrinter(NewCard(holderName));
         }
-        public static ICard NewVisa(string holderName)
+        public static ICard NewCard(string holderName)
         {
+            //Sets the card to be printet.
             return new Visa(holderName);
-        }
-        public static ICard NewMastercard(string holderName)
-        {
-            return new Mastercard(holderName);
-        }
-        public static ICard NewMaestro(string holderName)
-        {
-            return new Maestro(holderName);
-        }
-        public static ICard NewWithdrawCard(string holderName)
-        {
-            return new WithdrawCard(holderName);
         }
     }
 }

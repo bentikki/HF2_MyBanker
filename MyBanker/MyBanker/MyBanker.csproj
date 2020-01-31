@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\FilePrinter.cs" />
+    <Compile Include="Classes\ConsolePrinter.cs" />
     <Compile Include="Classes\CreditCard.cs" />
     <Compile Include="Classes\DebetCard.cs" />
     <Compile Include="Classes\Factory.cs" />
@@ -53,12 +55,14 @@
     <Compile Include="Classes\ICard.cs" />
     <Compile Include="Classes\IMaestro.cs" />
     <Compile Include="Classes\IMaxWithdraw.cs" />
+    <Compile Include="Classes\IPrinter.cs" />
     <Compile Include="Classes\IVisa.cs" />
     <Compile Include="Classes\IVisaElectron.cs" />
     <Compile Include="Classes\IMastercard.cs" />
     <Compile Include="Classes\IWithdrawCard.cs" />
     <Compile Include="Classes\Maestro.cs" />
     <Compile Include="Classes\Mastercard.cs" />
+    <Compile Include="Classes\Printer.cs" />
     <Compile Include="Classes\Visa.cs" />
     <Compile Include="Classes\WithdrawCard.cs" />
     <Compile Include="Classes\VisaElectron.cs" />

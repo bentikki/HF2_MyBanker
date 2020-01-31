@@ -11,54 +11,43 @@ namespace MyBanker
     {
         static void Main(string[] args)
         {
-
-
+            bool createNewCard = false;
             do
             {
-                Console.WriteLine("______________________________________________________________________________");
+                Console.WriteLine("Print a Card:");
                 Console.WriteLine();
 
-                ICard[] cardList =
-                {
-                    Factory.NewWithdrawCard("Ordinary withdraw card holder"),
-                    Factory.NewMaestro("Maestro card holder"),
-                    Factory.NewVisaElectron("Visa Electron Holder"),
-                    Factory.NewVisa("Visa Card holder"),
-                    Factory.NewMastercard("Mastercard Holder")
-                };
+                Console.Write("Write your name for the card:  ");
+                string userInput = Console.ReadLine();
+                IPrinter printer = Factory.NewPrinter(userInput);
 
-                Console.WriteLine("Randomly generated cards:");
+
+                printer.Print();
+
                 Console.WriteLine();
-                foreach (ICard card in cardList)
-                {
-                    Console.WriteLine($"Cardtype: { card.CardName }");
-                    Console.WriteLine($"Holders name: { card.HolderName }");
-                    Console.WriteLine($"Card number: { card.CardNumber}");
-                    Console.WriteLine($"Reg. Number: { card.RegNumber}");
-                    Console.WriteLine($"Account number: { card.AccountNumber}");
-                    if (card is IExpires)
-                    {
-                        Console.WriteLine($"Expiry date: { ((IExpires)card).MaxExpireDate }");
-                    }
-                    if (card is ICreditCard)
-                    {
-                        Console.WriteLine("Credit card: Yes");
-                        Console.WriteLine($"Credit max: { ((ICreditCard)card).MaxCredit}");
-                        Console.WriteLine($"Max withdraw per month: { ((ICreditCard)card).MaxWithdrawPerDay}");
-                    }
-                    Console.WriteLine();
+                Console.WriteLine("Done!");
+                Console.WriteLine();
 
+                Console.WriteLine("Create another? (y / n)");
+                Console.WriteLine("Press (y / n)...");
+
+                string userYesNo = Console.ReadLine();
+                switch (userYesNo)
+                {
+                    case "y":
+                        createNewCard = true;
+                        break;
+                    case "n":
+                        createNewCard = false;
+                        break;
+                    default:
+                        Console.WriteLine("Not a valid input");
+                        Console.WriteLine("Exiting creator...");
+                        Console.ReadKey();
+                        break;
                 }
-                Console.WriteLine("______________________________________________________________________________");
-                Console.WriteLine();
-                Console.WriteLine("Generate new cards (Press any key...)");
-                Console.ReadKey();
 
-            } while (true);
-
-            
-
-            
+            } while (createNewCard);
 
         }
     }
